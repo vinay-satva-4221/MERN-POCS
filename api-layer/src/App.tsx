@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {authApis} from "./apis/handler";
 
 function App() {
+const addUser = async () =>{
+    const res = await  authApis.register({email:"paelvedf4e3r4221tuf@gmail.com",repeat_password:"veer",password:"veer",name:"veer"})
+    console.log("res",res)
+}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-5">
+        <button type="button" onClick={addUser} className="btn btn-primary">Submit</button>
     </div>
   );
 }

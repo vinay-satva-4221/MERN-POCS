@@ -1,7 +1,7 @@
 import {commanResponse} from "../../utils/models/commonResponse";
 import * as Yup from "yup";
 import {ResponseStatus} from "../../utils/interfaces/enum";
-import {GET} from "../../utils/Requests";
+import {POST} from "../../utils/Requests";
 import {userAuthEndPoints} from "../../endpoints";
 export const authHandler ={
     register
@@ -19,7 +19,7 @@ async function register (object: any) {
         });
 
         if (await registerSchema.isValid(object)) {
-            const response = await GET(userAuthEndPoints.REGISTER_USER);
+            const response = await POST(userAuthEndPoints.REGISTER_USER,object);
 
             if (response) {
                 responseOBJ.Status = response?.status === 200 ? true : false;
@@ -31,6 +31,7 @@ async function register (object: any) {
             responseOBJ.Status = false;
             responseOBJ.Message = await registerSchema.validate(object).catch((e) => e.message);
         }
+        console.log("vvacerrsdf")
         return responseOBJ;
     } catch (error) {
         console.log("error From controller::>", error);

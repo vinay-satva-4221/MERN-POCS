@@ -16,6 +16,7 @@ const POST = async (url:string,body={}) => {
     const reqestObj :requestModel = new requestModel();
     try {
         reqestObj.method = requestMethod.POST;
+        reqestObj.url = url;
         reqestObj.data = body;
         return await axiosRequest.request(reqestObj);
     } catch (error) {
