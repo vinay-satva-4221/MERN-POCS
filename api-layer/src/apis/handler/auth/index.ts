@@ -22,7 +22,7 @@ async function register (object: any) {
             const response = await POST(userAuthEndPoints.REGISTER_USER,object);
 
             if (response) {
-                responseOBJ.Status = response?.status === 200 ? true : false;
+                responseOBJ.Status = response?.status === 200 ;
                 responseOBJ.Result = response?.data ? response?.data : undefined;
                 responseOBJ.ResponseStatus = response.status;
             }

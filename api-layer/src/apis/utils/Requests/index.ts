@@ -7,6 +7,7 @@ const GET = async (url:string,params={}) => {
         try {
             reqestObj.method = requestMethod.GET;
             reqestObj.url = url;
+            reqestObj.params =params
             return await axiosRequest.request(reqestObj);
         } catch (error) {
             console.log("error from Get Request::>", error);
